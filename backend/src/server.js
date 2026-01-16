@@ -19,9 +19,9 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/habits', habitRoutes);
-app.use('/api/schedules', scheduleRoutes);
+app.use('/auth', authRoutes);
+app.use('/habits', habitRoutes);
+app.use('/schedules', scheduleRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
