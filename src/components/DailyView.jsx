@@ -31,8 +31,12 @@ export const DailyView = ({ date, schedule, completion, onToggle }) => {
                         <div className="activity-content">
                             <div className="activity-time">{activity.time}</div>
                             <div className="activity-title">{activity.activity}</div>
-                            <div className="activity-details">{activity.details}</div>
-                            <div className="activity-purpose">{activity.purpose}</div>
+                            {(activity.focusLayer || activity.details) && (
+                                <div className="activity-details">{activity.focusLayer || activity.details}</div>
+                            )}
+                            {(activity.mindset || activity.purpose) && (
+                                <div className="activity-purpose">{activity.mindset || activity.purpose}</div>
+                            )}
                         </div>
                     </div>
                 ))}

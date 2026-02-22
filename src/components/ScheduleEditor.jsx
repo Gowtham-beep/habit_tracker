@@ -14,7 +14,7 @@ export const ScheduleEditor = ({ schedules, onUpdate }) => {
     const addActivity = () => {
         setEditingSchedule([
             ...editingSchedule,
-            { time: '', activity: '', details: '', purpose: '' }
+            { time: '', activity: '', focusLayer: '', mindset: '' }
         ]);
     };
 
@@ -69,15 +69,15 @@ export const ScheduleEditor = ({ schedules, onUpdate }) => {
                         />
                         <input
                             type="text"
-                            placeholder="Details"
-                            value={activity.details}
-                            onChange={(e) => handleScheduleChange(index, 'details', e.target.value)}
+                            placeholder="Focus Layer / Details"
+                            value={activity.focusLayer || activity.details || ''}
+                            onChange={(e) => handleScheduleChange(index, 'focusLayer', e.target.value)}
                         />
                         <input
                             type="text"
-                            placeholder="Purpose"
-                            value={activity.purpose}
-                            onChange={(e) => handleScheduleChange(index, 'purpose', e.target.value)}
+                            placeholder="Mindset / Purpose"
+                            value={activity.mindset || activity.purpose || ''}
+                            onChange={(e) => handleScheduleChange(index, 'mindset', e.target.value)}
                         />
                         <button className="delete-btn" onClick={() => removeActivity(index)}>
                             <Trash2 size={18} />
