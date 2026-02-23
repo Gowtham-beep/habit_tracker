@@ -1,30 +1,107 @@
 export const WEEKDAY_SCHEDULE = [
-    { time: "5:30 – 5:45", activity: "Wake + Silence", focusLayer: "Mental Clarity", whyItExists: "Control input before noise", mindset: "No phone. Think long-term." },
-    { time: "5:45 – 6:15", activity: "Strategy / Finance Reading", focusLayer: "Capital + Strategy", whyItExists: "Build executive cognition", mindset: "1 concept. Reflect." },
-    { time: "6:15 – 7:30", activity: "Gym", focusLayer: "Physical Engine", whyItExists: "Energy for decade-long game", mindset: "Train hard, not reckless." },
-    { time: "7:30 – 8:30", activity: "Breakfast + Planning", focusLayer: "Direction", whyItExists: "Set 1 technical + 1 strategic intention", mindset: "Think in tradeoffs." },
-    { time: "9:00 – 6:00", activity: "Office Work", focusLayer: "Production Depth", whyItExists: "Real-world system exposure", mindset: "Identify risk, cost, scaling limits daily." },
-    { time: "6:00 – 7:00", activity: "Dinner + Recovery", focusLayer: "Reset", whyItExists: "Avoid cognitive stacking", mindset: "Step away fully." },
-    { time: "7:00 – 8:30", activity: "Deep Rebuild Block", focusLayer: "Technical Core (70%)", whyItExists: "Distributed systems reconstruction", mindset: "No frameworks. Raw logic." },
-    { time: "8:30 – 9:00", activity: "Layer Rotation", focusLayer: "Finance / Legal / Strategy (10% each)", whyItExists: "Multi-domain layering", mindset: "Mon: Finance / Tue: Legal / Wed: Strategy / Thu: Finance / Fri: Writing" },
-    { time: "9:00 – 9:30", activity: "Strategic Memo / GitHub Notes", focusLayer: "Writing + Synthesis", whyItExists: "Turn knowledge into clarity", mindset: "1 page max. Sharp thinking." },
-    { time: "10:15 – 5:30", activity: "Sleep", focusLayer: "Recovery", whyItExists: "Protect cognitive capital", mindset: "Non-negotiable." },
+    { 
+        time: "5:30 – 5:45", 
+        activity: "Wake + Silence", 
+        focusLayer: "Mental Clarity", 
+        whyItExists: "Anchor cognition before input noise", 
+        mindset: "No phone. Think long-term positioning." 
+    },
+
+    { 
+        time: "5:45 – 6:15", 
+        activity: "Capital / Strategy Reading (3x week) | Java Concept Articulation (2x week)", 
+        focusLayer: "Executive + Technical Depth", 
+        whyItExists: "Build capital lens + improve explanation speed", 
+        mindset: "Mon/Wed/Fri: Capital. Tue/Thu: Explain ACID, JVM, Threads, etc aloud." 
+    },
+
+    { 
+        time: "6:15 – 7:30", 
+        activity: "Gym (controlled intensity)", 
+        focusLayer: "Physical Engine", 
+        whyItExists: "Energy for long-term compounding", 
+        mindset: "Strong, sustainable, not exhausted." 
+    },
+
+    { 
+        time: "7:30 – 8:30", 
+        activity: "Breakfast + Technical Planning", 
+        focusLayer: "Execution Direction", 
+        whyItExists: "Define 1 DSA target + 1 backend depth goal", 
+        mindset: "What system problem am I solving tonight?" 
+    },
+
+    { 
+        time: "9:00 – 6:00", 
+        activity: "Office Work (Backend / Java Systems)", 
+        focusLayer: "Production Exposure", 
+        whyItExists: "Extract real-world concurrency + DB insights", 
+        mindset: "Identify 1 scaling limit daily." 
+    },
+
+    { 
+        time: "6:00 – 7:00", 
+        activity: "Dinner + Reset", 
+        focusLayer: "Recovery", 
+        whyItExists: "Prevent cognitive stacking", 
+        mindset: "Full detachment." 
+    },
+
+    { 
+        time: "7:00 – 8:30", 
+        activity: "Deep Rebuild Block (Java Core)", 
+        focusLayer: "Technical Dominance (70%)", 
+        whyItExists: "DSA + Backend System mastery", 
+        mindset: "45 min timed DSA (Java) + 45 min project/concurrency depth." 
+    },
+
+    { 
+        time: "8:30 – 9:00", 
+        activity: "Layer Rotation (Finance / Legal / Strategy / Infra Cost)", 
+        focusLayer: "Cross-Domain Layering (10%)", 
+        whyItExists: "Engineer with capital awareness", 
+        mindset: "Mon: Finance | Tue: JVM internals | Wed: Strategy | Thu: Distributed infra cost | Fri: Writing synthesis" 
+    },
+
+    { 
+        time: "9:00 – 9:20", 
+        activity: "Engineering Log / GitHub Notes", 
+        focusLayer: "Clarity + Signal", 
+        whyItExists: "Convert technical depth into articulation skill", 
+        mindset: "Short note: problem → tradeoff → improvement." 
+    },
+
+    { 
+        time: "10:30 – 5:30", 
+        activity: "Sleep (7h minimum)", 
+        focusLayer: "Recovery", 
+        whyItExists: "Protect cognitive capital", 
+        mindset: "Non-negotiable." 
+    },
 ];
 
 export const SATURDAY_SCHEDULE = [
-    { time: "Morning", activity: "Gym (moderate)", purpose: "Energy", mindset: "Keep body strong" },
-    { time: "10:00 – 1:00", activity: "Deep Rebuild (Core System)", purpose: "Architecture depth", mindset: "Solve hard problems" },
-    { time: "1:00 – 2:00", activity: "Break", purpose: "Reset", mindset: "Full detachment" },
-    { time: "2:00 – 4:00", activity: "Capital + Company Analysis", purpose: "Finance layering", mindset: "Think like CTO + CFO" },
-    { time: "4:00 – 5:00", activity: "Publish / Refine README", purpose: "Visible Win", mindset: "Turn depth into signal" },
-    { time: "Evening", activity: "Light reading", purpose: "Absorption", mindset: "No heavy grind" },
+    { time: "Morning", activity: "Gym (moderate / mobility)", purpose: "Energy", mindset: "Stable strength." },
+
+    { time: "10:00 – 1:00", activity: "Hard System Build (Java)", purpose: "Architecture Depth", mindset: "Concurrency, locking, scaling scenario only." },
+
+    { time: "1:00 – 2:00", activity: "Break", purpose: "Reset", mindset: "No tech thinking." },
+
+    { time: "2:00 – 4:00", activity: "Mock Interview / 3 Timed DSA Set (Java)", purpose: "Interview Conditioning", mindset: "Real pressure. No pauses." },
+
+    { time: "4:00 – 5:00", activity: "README / Architecture Documentation", purpose: "Signal Building", mindset: "Explain cost, CAP tradeoff, isolation choice." },
+
+    { time: "Evening", activity: "Light reading / Systems design absorption", purpose: "Slow compounding", mindset: "No heavy grind." },
 ];
 
 export const SUNDAY_SCHEDULE = [
-    { time: "Morning", activity: "Light gym / walk", purpose: "Recovery", mindset: "Lower intensity" },
-    { time: "Late Morning", activity: "Reading Lanes (3 books)", purpose: "Multi-domain compounding", mindset: "Slow thinking" },
-    { time: "Afternoon", activity: "Weekly Review", purpose: "Strategic awareness", mindset: "What did I truly learn?" },
-    { time: "Evening", activity: "Plan next week", purpose: "Intentional execution", mindset: "Set rebuild milestone" },
+    { time: "Morning", activity: "Light gym / walk", purpose: "Recovery", mindset: "Low intensity." },
+
+    { time: "Late Morning", activity: "Concept Reinforcement (JVM / OS / DB recap)", purpose: "Long-term retention", mindset: "Teach the concept aloud." },
+
+    { time: "Afternoon", activity: "Weekly Strategic Review + Resume Upgrade", purpose: "Integration", mindset: "What improved in backend depth?" },
+
+    { time: "Evening", activity: "Plan Next Week (DSA targets + system milestone)", purpose: "Execution clarity", mindset: "Define measurable outcome." },
 ];
 
 // Legacy alias — kept for backwards compatibility with any existing imports
