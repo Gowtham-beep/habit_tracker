@@ -2,21 +2,16 @@ import { useState, useEffect } from 'react';
 import { format, startOfDay } from 'date-fns';
 import { WEEKDAY_SCHEDULE, WEEKEND_SCHEDULE } from '../data/initialSchedule';
 import apiService from '../services/api';
-import { sortScheduleByTime } from '../utils/scheduleSort';
 
 const STORAGE_KEY = 'habit_tracker_data';
 const SCHEDULE_KEY = 'habit_tracker_schedules';
-const sortSchedules = (data = {}) => ({
-    weekday: sortScheduleByTime(data.weekday || []),
-    weekend: sortScheduleByTime(data.weekend || [])
-});
 
 export const useHabits = (isAuthenticated = false) => {
     const [habitData, setHabitData] = useState({});
-    const [schedules, setSchedules] = useState(sortSchedules({
+    const [schedules, setSchedules] = useState({
         weekday: WEEKDAY_SCHEDULE,
         weekend: WEEKEND_SCHEDULE
-    }));
+    });
     const [loading, setLoading] = useState(false);
 
     // Load data on mount
@@ -30,7 +25,7 @@ export const useHabits = (isAuthenticated = false) => {
                     // Load schedules
                     const schedulesData = await apiService.getSchedules();
                     if (schedulesData.schedules) {
-                        setSchedules(sortSchedules(schedulesData.schedules));
+                        setSchedules(schedulesData.schedules);
                     }
 
                     // Load habit logs for last 365 days
@@ -69,7 +64,7 @@ export const useHabits = (isAuthenticated = false) => {
         }
 
         if (savedSchedules) {
-            setSchedules(sortSchedules(JSON.parse(savedSchedules)));
+            setSchedules(JSON.parse(savedSchedules));
         }
     };
 
@@ -85,7 +80,7 @@ export const useHabits = (isAuthenticated = false) => {
     const getScheduleForDate = (date) => {
         const day = date.getDay();
         const isWeekend = day === 0 || day === 6;
-        return sortScheduleByTime(isWeekend ? schedules.weekend : schedules.weekday);
+        return isWeekend ? schedules.weekend : schedules.weekday;
     };
 
     const toggleActivity = async (date, activityIndex) => {
@@ -126,10 +121,9 @@ export const useHabits = (isAuthenticated = false) => {
     };
 
     const updateSchedule = async (type, newSchedule) => {
-        const sortedSchedule = sortScheduleByTime(newSchedule);
         const newSchedules = {
             ...schedules,
-            [type]: sortedSchedule
+            [type]: newSchedule
         };
 
         setSchedules(newSchedules);
@@ -137,7 +131,7 @@ export const useHabits = (isAuthenticated = false) => {
         // Sync to backend if authenticated
         if (isAuthenticated) {
             try {
-                await apiService.updateSchedule(type, sortedSchedule);
+                await apiService.updateSchedule(type, newSchedule);
             } catch (error) {
                 console.error('Failed to sync schedule to backend:', error);
             }

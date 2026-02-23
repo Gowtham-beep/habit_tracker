@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Plus, Trash2, Save } from 'lucide-react';
-import { sortScheduleByTime } from '../utils/scheduleSort';
 
 export const ScheduleEditor = ({ schedules, onUpdate }) => {
     const [activeTab, setActiveTab] = useState('weekday');
-    const [editingSchedule, setEditingSchedule] = useState(sortScheduleByTime(schedules[activeTab]));
-
-    useEffect(() => {
-        setEditingSchedule(sortScheduleByTime(schedules[activeTab]));
-    }, [schedules, activeTab]);
+    const [editingSchedule, setEditingSchedule] = useState(schedules[activeTab]);
 
     const handleScheduleChange = (index, field, value) => {
         const updated = [...editingSchedule];
@@ -28,15 +23,13 @@ export const ScheduleEditor = ({ schedules, onUpdate }) => {
     };
 
     const saveSchedule = () => {
-        const sortedSchedule = sortScheduleByTime(editingSchedule);
-        setEditingSchedule(sortedSchedule);
-        onUpdate(activeTab, sortedSchedule);
+        onUpdate(activeTab, editingSchedule);
         alert('Schedule saved successfully!');
     };
 
     const switchTab = (tab) => {
         setActiveTab(tab);
-        setEditingSchedule(sortScheduleByTime(schedules[tab]));
+        setEditingSchedule(schedules[tab]);
     };
 
     return (
